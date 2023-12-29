@@ -10,7 +10,7 @@ public class LoginForm extends JDialog {
     public JPanel loginJPanel;
     private JButton btnBACK;
     private JFrame parentFrame;
-    private boolean isEmployee;
+    private boolean isEmployee1;
     User user = new User();
 
 
@@ -18,7 +18,7 @@ public class LoginForm extends JDialog {
     public LoginForm(JFrame parent, boolean isEmployee){
         super(parent);
         parentFrame = parent;
-        this.isEmployee = isEmployee;
+        isEmployee1 = isEmployee;
         setTitle("Login");
         setContentPane(loginJPanel);
         setMinimumSize(new Dimension(450,500));
@@ -27,26 +27,26 @@ public class LoginForm extends JDialog {
 
 
         btnOK.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 String email = tfEmail.getText();
                 String password = String.valueOf(pfPassword.getPassword());
-                boolean isMatched = true;//for test
-                user.isEmployee = true; //for test
-                if(isMatched&&!isEmployee){
+               // boolean isMatched = true;//for test
+                if(!isEmployee){
 
                     dispose();
                     MainSystemCustomer mainSystemCustomer = new MainSystemCustomer(parentFrame);
                     mainSystemCustomer.setVisible(true);
 
                 }
-                else if(isMatched&&isEmployee){
+                else if(isEmployee){
                     dispose();
                     MainSystemEmployee mainSystemEmployee = new MainSystemEmployee(parentFrame);
                     mainSystemEmployee.setVisible(true);
 
                 }
+                else {
 
+                }
             }
         });
         btnBACK.addActionListener(new ActionListener() {
