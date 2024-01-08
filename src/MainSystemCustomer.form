@@ -95,13 +95,13 @@
               <text value="lorem ipsum"/>
             </properties>
           </component>
-          <component id="e07bb" class="javax.swing.JButton" binding="membershipButton" default-binding="true">
+          <component id="e07bb" class="javax.swing.JButton" binding="workoutClassButton" default-binding="true">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Segoe Print" size="18" style="1"/>
-              <text value="Membership"/>
+              <text value="Workout Class"/>
             </properties>
           </component>
           <component id="caf9d" class="javax.swing.JButton" binding="myProfileButton" default-binding="true">
