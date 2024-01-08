@@ -34,26 +34,38 @@ public class LoginForm extends JDialog {
                 String password = String.valueOf(pfPassword.getPassword());
                 if(!isEmployee){
                 User user1  = getAuthenticatedCustomer(email,password);
-
+                try{
                     if(user1.gender != null) {
                         dispose();
                         MainSystemCustomer mainSystemCustomer = new MainSystemCustomer(parentFrame, user1);
                         mainSystemCustomer.setVisible(true);
                     }
+
+                }catch (Exception f){
+                    f.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Email or password is wrong " );
+
+                }
                 }
                 else if(isEmployee){
 
                     User user1  = getAuthenticatedEmployee(email,password);
+                    try {
+
 
                     if(user1.Name != null) {
                         dispose();
                         employeeInfo employeeInfo = new employeeInfo(parentFrame, user1);
                         employeeInfo.setVisible(true);
+                    }
+                }catch (Exception a){
+                        a.printStackTrace();
+                        JOptionPane.showMessageDialog(null, "Email or password is wrong " );
+                    }
+
+
 
                 }
-                else {
-
-                }}
             }
         });
         btnBACK.addActionListener(new ActionListener() {
@@ -100,7 +112,7 @@ public class LoginForm extends JDialog {
         }catch (Exception e){
             e.printStackTrace();
 
-    }
+        }
         return user;
     }
     private User getAuthenticatedEmployee(String email, String password){
